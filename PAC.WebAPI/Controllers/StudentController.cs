@@ -29,5 +29,18 @@ namespace PAC.WebAPI
             return Created($"api/users/{parsedStudent.Id}", parsedStudent);
         }
 
+        [HttpGet]
+        public IActionResult GetAllStudents()
+        {
+            IEnumerable<Student> students = StudentLogic.GetStudents();
+            return Ok(students);
+        }
+
+        [HttpGet]
+        public IActionResult GetStudentById([FromBody] int studentId)
+        {
+            Student students = StudentLogic.GetStudentById(studentId);
+            return Ok(students);
+        }
     }
 }
