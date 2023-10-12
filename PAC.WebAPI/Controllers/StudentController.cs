@@ -11,8 +11,23 @@ using PAC.WebAPI.Filters;
 namespace PAC.WebAPI
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/students")]
     public class StudentController : ControllerBase
     {
+        public readonly IStudentLogic StudentLogic;
+
+        public StudentController(IStudentLogic studentLogic)
+        {
+            StudentLogic = studentLogic;    
+        }
+
+        [HttpPost]
+        public IActionResult CreateStudent([FromBody] StudentModelRequest studentDto)
+        {
+            Student parsedStudent = studentDto.ToEntity();
+            StudentLogic.InsertStudents(parsedStudent);
+            return Created($"api/users/{parsedStudent.Id}", parsedStudent);
+        }
+
     }
 }
