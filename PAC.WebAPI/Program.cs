@@ -19,6 +19,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IStudentsRepository<Student>, StudentsRepository<Student>>();
 builder.Services.AddScoped<IStudentLogic, StudentLogic>();
 
+builder.Services.AddScoped<AuthorizationFilter>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

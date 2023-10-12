@@ -6,11 +6,14 @@ namespace PAC.WebAPI.Filters
 {
     public class AuthorizationFilter : Attribute, IAuthorizationFilter
     {
-        public virtual void OnAuthorization(AuthorizationFilterContext context)
+        public void OnAuthorization(AuthorizationFilterContext context)
         {
-            var authorizationHeader = context.HttpContext.Request.Headers[""].ToString();
-        }
+            var authorizationHeader = context.HttpContext.Request.Headers["Authorization"].ToString();
 
+            if (string.IsNullOrWhiteSpace(authorizationHeader))
+            {
+                context.Result = new UnauthorizedResult();
+            }
+        }
     }
 }
-

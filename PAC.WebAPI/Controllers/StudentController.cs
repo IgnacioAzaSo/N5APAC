@@ -22,6 +22,7 @@ namespace PAC.WebAPI
         }
 
         [HttpPost]
+        [ServiceFilter(typeof(AuthorizationFilter))]
         public IActionResult CreateStudent([FromBody] StudentModelRequest studentDto)
         {
             Student parsedStudent = studentDto.ToEntity();
