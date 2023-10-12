@@ -31,9 +31,16 @@ namespace PAC.WebAPI
         }
 
         [HttpGet]
-        public IActionResult GetAllStudents()
+        public IActionResult GetAllStudents(int? age)
         {
-            IEnumerable<Student> students = StudentLogic.GetStudents();
+            var students = StudentLogic.GetStudents();
+
+            // Esta parte se validaria en el servicio. Por temas de tiempo se hace aca
+            if (age.HasValue)
+            {
+                students = students.Where(student => student.Age == age.Value).ToList();
+            }
+
             return Ok(students);
         }
 
