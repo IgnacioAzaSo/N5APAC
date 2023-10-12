@@ -12,7 +12,7 @@ namespace PAC.WebAPI.Filters
 
             if (string.IsNullOrWhiteSpace(authorizationHeader))
             {
-                context.Result = new UnauthorizedResult();
+                context.Result = new UnauthorizedObjectResult("No puedo autorizarme");
             }
         }
     }
