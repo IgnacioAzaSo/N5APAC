@@ -14,3 +14,9 @@
   Una única instancia para toda la aplicación: Se crea una sola instancia del servicio y se comparte en toda la aplicación.
 
 </p>
+
+<p>
+  Observación sobre los controllers: 
+  Para hacer esto de una forma mas efectiva, se podrian haber usado modelos de UserBasicInfo, que asegura "privacidad en la información".
+  No se revelan datos mayores.
+</p>
