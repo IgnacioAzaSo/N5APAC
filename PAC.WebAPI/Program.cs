@@ -15,6 +15,7 @@ builder.Services.AddControllers(options => { options.Filters.Add(typeof(Exceptio
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Logica de negocio ya implementada.
 builder.Services.AddScoped<IStudentsRepository<Student>, StudentsRepository<Student>>();
 
 var app = builder.Build();
