@@ -27,7 +27,7 @@ namespace PAC.WebAPI
         {
             Student parsedStudent = studentDto.ToEntity();
             StudentLogic.InsertStudents(parsedStudent);
-            return Created($"api/users/{parsedStudent.Id}", parsedStudent);
+            return Created($"api/students/{parsedStudent.Id}", parsedStudent);
         }
 
         [HttpGet]

@@ -42,7 +42,7 @@ public class StudentControllerTest
 
             Assert.IsNotNull(result);
             Assert.AreEqual(201, result.StatusCode);
-            Assert.AreEqual(result.Location, "api/users/1"); 
+            Assert.AreEqual(result.Location, "api/students/1"); 
         }
 
 }
