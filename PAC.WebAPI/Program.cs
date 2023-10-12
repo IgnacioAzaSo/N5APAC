@@ -17,6 +17,7 @@ builder.Services.AddSwaggerGen();
 
 //Logica de negocio ya implementada.
 builder.Services.AddScoped<IStudentsRepository<Student>, StudentsRepository<Student>>();
+builder.Services.AddScoped<IStudentLogic, StudentLogic>();
 
 var app = builder.Build();
 
